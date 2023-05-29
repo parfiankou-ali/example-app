@@ -45,7 +45,7 @@ class ProductController extends Controller
                 )
                 ->orderBy('score', 'desc')
                 ->whereNot('id', $product->id)
-                ->limit(100)
+                ->limit($recommendationCount)
                 ->get();
 
             $biggestFrequency = 0;
@@ -97,7 +97,7 @@ class ProductController extends Controller
                 }
             }
             
-            \Cache::put($cacheKey, $similarProducts, now()->addMinutes(10));
+            //\Cache::put($cacheKey, $similarProducts, now()->addMinutes(10));
         }
 
         return $similarProducts;
