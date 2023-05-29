@@ -97,7 +97,7 @@ class ProductController extends Controller
                 }
             }
             
-            //\Cache::put($cacheKey, $similarProducts, now()->addMinutes(10));
+            \Cache::put($cacheKey, $similarProducts, now()->addMinutes(10));
         }
 
         return $similarProducts;
